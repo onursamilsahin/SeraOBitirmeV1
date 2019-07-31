@@ -1,0 +1,15 @@
+﻿@*Burada hem sıcaklık hem hava nem degerleri var*@ 
+@model SeraOWeb.Models.DataAccess.Dht11
+<div class="row" align="center"  id="SonDegerler">
+     
+    <div class="col-md-5  alert bg-danger"  style="margin:2%" >
+        SERA SICAKLIĞI : @Model.Sicaklik 
+    </div>
+      
+      
+       
+    <div class="col-md-5  alert bg-danger" style="margin:2%" id="SonHavaNem" >
+        HAVA NEM ORANI : %@Model.HavaNem
+    </div>
+
+</div>

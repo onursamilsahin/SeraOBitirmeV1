@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "RolVer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>RolVer</h2>
+
+<div class="row">
+
+
+    <div class="col-lg-12">
+
+        <div class="col-lg-6"> @ViewBag.kullaniciIsim @ViewBag.KullaniciSoyIsim </div>
+
+
+
+        @using (Html.BeginForm("RolKullaniciEsle", "Admin", FormMethod.Post))
+        {
+
+
+
+            <div class="col-lg-6">
+
+
+              
+
+
+                <select name="Rol1">
+                    @foreach (var item in ViewBag.Sera)
+                    {
+                        <option value="@item.Rol1">@item.RolIsim</option>
+                    }
+                </select>
+                   
+
+                <input type="hidden" name="KullaniciId" value="@ViewBag.KullaniciId" />
+
+                <input type="submit" name="Rol1" value="Rol Esle" class="btn-info" />
+
+               
+
+               
+
+
+            </div>
+
+
+
+
+        }
+
+
+    </div>
+
+</div>
+

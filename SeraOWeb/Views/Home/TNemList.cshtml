@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "TNemList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SeraOWeb.Models.DataAccess.TNem>
+
+
+<a href="~/Home/SulamaKontrolu"><button style="margin-bottom: 15px;" type="button" class="btn btn-info"> Geri Dön</button> </a>
+<table class="table" style="background-color:floralwhite;  border: 10px solid aliceblue">
+    <tr>
+
+        <th style="background-color: aliceblue">
+            @Html.DisplayName("Toprak Hava Nem Değerleri")
+        </th>
+        <th style="background-color: aliceblue">
+            @Html.DisplayName("Tarih")
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td style="background-color:white">
+                @Html.DisplayFor(modelItem =>item.NemDegeri)
+            </td>
+            <td style="background-color:white">
+                @Html.DisplayFor(modelItem => item.ETarihi)
+            </td>
+
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("TNemList", new { page, pageSize = Model.PageSize }))
+
+Toplam @Model.TotalItemCount kayıt bulundu. Bu sayfada @Model.FirstItemOnPage ile @Model.LastItemOnPage arası kayıtlar gösteriliyor.

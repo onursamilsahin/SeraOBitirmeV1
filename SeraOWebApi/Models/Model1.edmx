@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SeraOBitirmeDbv1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatiKapak">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kdurum" Type="bit" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="Dht11">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sicaklik" Type="varchar(max)" />
+          <Property Name="HavaNem" Type="varchar(max)" />
+          <Property Name="ETarihi" Type="datetime" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="FanSoguk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FanDurum" Type="bit" />
+          <Property Name="LimitSicaklik" Type="varchar(max)" />
+          <Property Name="FanButonDeger" Type="bit" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="HareketSensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HDurum" Type="varchar(max)" />
+          <Property Name="SeraId" Type="int" />
+          <Property Name="HDeger" Type="varchar(max)" />
+          <Property Name="HDurum2" Type="bit" />
+        </EntityType>
+        <EntityType Name="HavalandirmaKontrol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HavalandirmaLimiti" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="varchar(max)" />
+          <Property Name="Isim" Type="varchar(max)" />
+          <Property Name="SoyIsim" Type="varchar(max)" />
+          <Property Name="SeraId" Type="int" />
+          <Property Name="SeraKonum" Type="varchar(max)" />
+          <Property Name="TelNo" Type="varchar(max)" />
+          <Property Name="Sifre" Type="varchar(max)" />
+          <Property Name="KayitTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KullaniciRol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolId" Type="int" />
+          <Property Name="KullaniciId" Type="int" />
+        </EntityType>
+        <EntityType Name="Ldr">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LdrDeger" Type="varchar(max)" />
+          <Property Name="LdrDurum" Type="bit" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="LedDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LDurum" Type="bit" />
+          <Property Name="SeraId" Type="int" />
+          <Property Name="Led1" Type="varchar(max)" />
+          <Property Name="Led2" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolIsim" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Sensorler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SensorAdi" Type="varchar(max)" />
+          <Property Name="SensorIslevi" Type="varchar(max)" />
+          <Property Name="SensorETarih" Type="datetime" />
+          <Property Name="SensorResim" Type="varchar(max)" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="Sera">
+          <Key>
+            <PropertyRef Name="SeraId" />
+          </Key>
+          <Property Name="SeraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeraKonum" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="SuPompasi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPDurum" Type="bit" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TNem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NemDegeri" Type="varchar(max)" />
+          <Property Name="ETarihi" Type="datetime" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="ToprakNemKontrol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NemLimitDeger" Type="varchar(max)" />
+          <Property Name="NemUyariUst" Type="varchar(max)" />
+          <Property Name="NemUyariAlt" Type="varchar(max)" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityType Name="YagmurSensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YDeger" Type="varchar(max)" />
+          <Property Name="YDurum" Type="bit" />
+          <Property Name="SeraId" Type="int" />
+        </EntityType>
+        <EntityContainer Name="SeraOBitirmeDbv1ModelStoreContainer">
+          <EntitySet Name="CatiKapak" EntityType="Self.CatiKapak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dht11" EntityType="Self.Dht11" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FanSoguk" EntityType="Self.FanSoguk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HareketSensor" EntityType="Self.HareketSensor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HavalandirmaKontrol" EntityType="Self.HavalandirmaKontrol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciRol" EntityType="Self.KullaniciRol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ldr" EntityType="Self.Ldr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LedDurum" EntityType="Self.LedDurum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sensorler" EntityType="Self.Sensorler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sera" EntityType="Self.Sera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuPompasi" EntityType="Self.SuPompasi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TNem" EntityType="Self.TNem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToprakNemKontrol" EntityType="Self.ToprakNemKontrol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YagmurSensor" EntityType="Self.YagmurSensor" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SeraOBitirmeDbv1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatiKapak">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kdurum" Type="Boolean" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Dht11">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sicaklik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HavaNem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ETarihi" Type="DateTime" Precision="3" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FanSoguk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FanDurum" Type="Boolean" />
+          <Property Name="LimitSicaklik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FanButonDeger" Type="Boolean" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HareketSensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HDurum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SeraId" Type="Int32" />
+          <Property Name="HDeger" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HDurum2" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Isim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SoyIsim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SeraId" Type="Int32" />
+          <Property Name="SeraKonum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TelNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="KullaniciRol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolId" Type="Int32" />
+          <Property Name="KullaniciId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Ldr">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LdrDeger" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LdrDurum" Type="Boolean" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LedDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LDurum" Type="Boolean" />
+          <Property Name="SeraId" Type="Int32" />
+          <Property Name="Led1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Led2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Rol1" />
+          </Key>
+          <Property Name="Rol1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolIsim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sensorler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SensorAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SensorIslevi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SensorETarih" Type="DateTime" Precision="3" />
+          <Property Name="SensorResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sera">
+          <Key>
+            <PropertyRef Name="SeraId" />
+          </Key>
+          <Property Name="SeraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeraKonum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SuPompasi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPDurum" Type="Boolean" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TNem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NemDegeri" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ETarihi" Type="DateTime" Precision="3" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ToprakNemKontrol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NemLimitDeger" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NemUyariUst" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NemUyariAlt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YagmurSensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YDeger" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="YDurum" Type="Boolean" />
+          <Property Name="SeraId" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="SeraOBitirmeDbv1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatiKapaks" EntityType="Self.CatiKapak" />
+          <EntitySet Name="Dht11" EntityType="Self.Dht11" />
+          <EntitySet Name="FanSoguks" EntityType="Self.FanSoguk" />
+          <EntitySet Name="HareketSensors" EntityType="Self.HareketSensor" />
+          <EntitySet Name="Kullanicis" EntityType="Self.Kullanici" />
+          <EntitySet Name="KullaniciRols" EntityType="Self.KullaniciRol" />
+          <EntitySet Name="Ldrs" EntityType="Self.Ldr" />
+          <EntitySet Name="LedDurums" EntityType="Self.LedDurum" />
+          <EntitySet Name="Rols" EntityType="Self.Rol" />
+          <EntitySet Name="Sensorlers" EntityType="Self.Sensorler" />
+          <EntitySet Name="Seras" EntityType="Self.Sera" />
+          <EntitySet Name="SuPompasis" EntityType="Self.SuPompasi" />
+          <EntitySet Name="TNems" EntityType="Self.TNem" />
+          <EntitySet Name="ToprakNemKontrols" EntityType="Self.ToprakNemKontrol" />
+          <EntitySet Name="YagmurSensors" EntityType="Self.YagmurSensor" />
+          <EntitySet Name="HavalandirmaKontrols" EntityType="SeraOBitirmeDbv1Model.HavalandirmaKontrol" />
+          <EntitySet Name="sysdiagrams" EntityType="SeraOBitirmeDbv1Model.sysdiagram" />
+        </EntityContainer>
+        <EntityType Name="HavalandirmaKontrol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HavalandirmaLimiti" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SeraOBitirmeDbv1ModelStoreContainer" CdmEntityContainer="SeraOBitirmeDbv1Entities">
+          <EntitySetMapping Name="CatiKapaks">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.CatiKapak">
+              <MappingFragment StoreEntitySet="CatiKapak">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kdurum" ColumnName="Kdurum" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dht11">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.Dht11">
+              <MappingFragment StoreEntitySet="Dht11">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Sicaklik" ColumnName="Sicaklik" />
+                <ScalarProperty Name="HavaNem" ColumnName="HavaNem" />
+                <ScalarProperty Name="ETarihi" ColumnName="ETarihi" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FanSoguks">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.FanSoguk">
+              <MappingFragment StoreEntitySet="FanSoguk">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FanDurum" ColumnName="FanDurum" />
+                <ScalarProperty Name="LimitSicaklik" ColumnName="LimitSicaklik" />
+                <ScalarProperty Name="FanButonDeger" ColumnName="FanButonDeger" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HareketSensors">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.HareketSensor">
+              <MappingFragment StoreEntitySet="HareketSensor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HDurum" ColumnName="HDurum" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+                <ScalarProperty Name="HDeger" ColumnName="HDeger" />
+                <ScalarProperty Name="HDurum2" ColumnName="HDurum2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicis">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Isim" ColumnName="Isim" />
+                <ScalarProperty Name="SoyIsim" ColumnName="SoyIsim" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+                <ScalarProperty Name="SeraKonum" ColumnName="SeraKonum" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciRols">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.KullaniciRol">
+              <MappingFragment StoreEntitySet="KullaniciRol">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ldrs">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.Ldr">
+              <MappingFragment StoreEntitySet="Ldr">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LdrDeger" ColumnName="LdrDeger" />
+                <ScalarProperty Name="LdrDurum" ColumnName="LdrDurum" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LedDurums">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.LedDurum">
+              <MappingFragment StoreEntitySet="LedDurum">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LDurum" ColumnName="LDurum" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+                <ScalarProperty Name="Led1" ColumnName="Led1" />
+                <ScalarProperty Name="Led2" ColumnName="Led2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rols">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Rol1" ColumnName="Rol" />
+                <ScalarProperty Name="RolIsim" ColumnName="RolIsim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sensorlers">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.Sensorler">
+              <MappingFragment StoreEntitySet="Sensorler">
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SensorAdi" ColumnName="SensorAdi" />
+                <ScalarProperty Name="SensorIslevi" ColumnName="SensorIslevi" />
+                <ScalarProperty Name="SensorETarih" ColumnName="SensorETarih" />
+                <ScalarProperty Name="SensorResim" ColumnName="SensorResim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seras">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.Sera">
+              <MappingFragment StoreEntitySet="Sera">
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+                <ScalarProperty Name="SeraKonum" ColumnName="SeraKonum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuPompasis">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.SuPompasi">
+              <MappingFragment StoreEntitySet="SuPompasi">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SPDurum" ColumnName="SPDurum" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TNems">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.TNem">
+              <MappingFragment StoreEntitySet="TNem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NemDegeri" ColumnName="NemDegeri" />
+                <ScalarProperty Name="ETarihi" ColumnName="ETarihi" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToprakNemKontrols">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.ToprakNemKontrol">
+              <MappingFragment StoreEntitySet="ToprakNemKontrol">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NemLimitDeger" ColumnName="NemLimitDeger" />
+                <ScalarProperty Name="NemUyariUst" ColumnName="NemUyariUst" />
+                <ScalarProperty Name="NemUyariAlt" ColumnName="NemUyariAlt" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YagmurSensors">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.YagmurSensor">
+              <MappingFragment StoreEntitySet="YagmurSensor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="YDeger" ColumnName="YDeger" />
+                <ScalarProperty Name="YDurum" ColumnName="YDurum" />
+                <ScalarProperty Name="SeraId" ColumnName="SeraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HavalandirmaKontrols">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.HavalandirmaKontrol">
+              <MappingFragment StoreEntitySet="HavalandirmaKontrol">
+                <ScalarProperty Name="HavalandirmaLimiti" ColumnName="HavalandirmaLimiti" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SeraOBitirmeDbv1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

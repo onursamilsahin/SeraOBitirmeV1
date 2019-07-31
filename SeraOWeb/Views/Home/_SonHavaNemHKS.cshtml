@@ -1,0 +1,15 @@
+﻿@model SeraOWeb.Models.DataAccess.Dht11
+<div class="col-md-12" align="center" style="margin-top: 15px;margin-bottom: 15px; margin-left: 10px;">
+    <p style="font-size: 22px;">Şu Anki Nem Değeri : %@Model.HavaNem</p><br />
+    @if (ViewBag.KapakDurum==true)
+    {
+
+
+        <p style="font-size: 22px;">Havalandırma Durumu : Açık</p>
+    }
+    else
+    {
+        <p style="font-size: 22px;">Havalandırma Durumu : Kapalı</p>
+    }
+
+</div>

@@ -1,0 +1,19 @@
+﻿@model SeraOWeb.Models.DataAccess.TNem
+
+
+
+<div class="col-md-12" align="center" style="margin-top: 15px;margin-bottom: 15px; margin-left: 10px;">
+    <p style="font-size: 22px;">Şu Anki Toprak Nem Değeri : @Model.NemDegeri</p><br />
+    @if (ViewBag.SuPompasiDurum==true)
+    {
+
+
+        <p style="font-size: 22px;">Sulama : Açık</p>
+    }
+    else
+    {
+        <p style="font-size: 22px;">Sulama: Kapalı</p>
+    }
+
+       
+</div>

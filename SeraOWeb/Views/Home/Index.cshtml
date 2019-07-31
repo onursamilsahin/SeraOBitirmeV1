@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div hidden="">
+    @Ajax.ActionLink("Verileri Yükle", "SonSaatVeHava", null, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "SonSaatVeHava", InsertionMode = InsertionMode.Replace}, new { @class = "btn btn-success" ,id="SonSaatVeHavaBtn"})
+</div>
+<div class="jumbotron" style="background-color: #ECF0F5" id="SonSaatVeHava">
+   
+    <div class="alert bg-success" align="center" style="font-size: 150%" role="alert">SERA YÖNETİM PANELİNE HOŞGELDİNİZ ,DEĞERLERİ GÖREBİLİR YA DA İSTEDİĞİNİZ İŞLEMLERİ YAPABİLİRSİNİZ.</div>
+    <div class="alert bg-success" align="center" style="font-size: 120%; width: 50%; margin-left: 25%" role="alert">
+
+
+        <p>
+            @DateTime.Now
+        </p>
+
+        <hr/>
+        <img src="http://www.mgm.gov.tr/sunum/sondurum-klasik-5070.aspx?m=SAKARYA&rC=111&rZ=fff" style="width: 150px; height: 100px;" alt="SAKARYA"/>
+        <img src="http://www.mgm.gov.tr/sunum/tahmin-klasik-5070.aspx?m=SAKARYA&basla=1&bitir=5&rC=111&rZ=fff" style="width: 300px; height: 100px;" alt="SAKARYA"/>
+
+    </div>
+</div>
+
+
+<div class="container">
+    
+    <div hidden="">
+        @Ajax.ActionLink("Verileri Yükle", "SonSeraSicakligi", null, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "SonDegerler", InsertionMode = InsertionMode.ReplaceWith}, new { @class = "btn btn-success" ,id="SonSicaklikBtn"})
+    </div>
+    <div class="row" align="center"  id="SonDegerler">
+     
+        <div class="col-md-5  alert bg-danger"  style="margin:2%" >
+            SERA SICAKLIĞI : 23.50
+        </div>
+      
+      
+       
+        <div class="col-md-5  alert bg-danger" style="margin:2%" id="SonHavaNem" >
+            HAVA NEM ORANI : %65
+        </div>
+
+    </div>
+    <div class="row" align="center">
+
+        <div class="col-md-5  alert bg-danger" style="margin: 2%">
+            @*Burada yağmur un olup olmadığı nasıl anlaşılacak yağmur var ise kağak kapalı ama isteğe görede kapak kapaı olabilir.*@
+            YAĞMUR DURUMU : VAR/YOK
+        </div>
+
+        <div hidden="">
+            @Ajax.ActionLink("Verileri Yükle", "SonToprakNem", null, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "SonToprakNem", InsertionMode = InsertionMode.ReplaceWith }, new { @class = "btn btn-success", id = "SonToprakNemBtn" })
+        </div>
+        <div class="col-md-5 alert bg-danger" style="margin: 2%" id="SonToprakNem">
+            TOPRAK NEM ORANI : %70
+        </div>
+
+    </div>
+    
+    
+    
+    
+    <div class="row" align="center">
+        <div class="col-md-12" style="margin-top: 5%; padding-right:  10%">
+
+            <a href="~/Home/SeraYonetim"> <button type="submit" class="btn btn-primary" style="height:100px; ">Serayı Kontrol Etmek İçin Tıklayınız</button></a>   
+        </div>
+       
+
+    </div>
+</div>
+<script>
+    
+    setInterval(function () { document.getElementById("SonSaatVeHavaBtn").click(); }, 1000);
+
+    setInterval(function () { document.getElementById("SonSicaklikBtn").click(); }, 1000);
+     setInterval(function () { document.getElementById("SonToprakNemBtn").click(); }, 1000);
+
+</script>

@@ -1,0 +1,311 @@
+﻿
+@{
+    ViewBag.Title = "SicaklikKontrolu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<div class="row" style="background-color: #ECF0F5;border: 1px solid black">
+    <div align="center" style="font-size: 150%">
+        <p style="padding-top: 10px;">
+            SERA YÖNETİMİ
+        </p>
+
+        <p style="padding-top: 20px;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 150
+            when an unknown printer took a galley of type and scrambled it to make a
+        </p>
+    </div>
+
+
+</div>
+
+
+<div class="row" style="background-color: #ECF0F5; margin-top: 20px; border: 1px solid black">
+
+    <div class="col-md-6">   <p style="font-size:25px;"><img style="height: 15%; width: 15%; padding-top: 5px; padding-right: 5px;" src="~/Content/png/sunny.png" />SICAKLIK KONTROLÜ</p></div>
+
+    <div class="col-md-6"></div>
+ 
+
+
+</div>
+
+<div class="row" style="background-color: #ECF0F5; margin-top: 20px; border: 1px solid black">
+    <div class="col-md-12" align="center" style="margin-top: 15px;margin-bottom: 15px; margin-left: 10px;">
+        <p style="font-size: 22px;">Şu Anki Sıcaklık Değeri : 25</p><br />
+        @if (true)
+        {
+
+
+            <p style="font-size: 22px;">Soğutucu Fan Durumu : Açık</p>
+        }
+        else
+        {
+            <p style="font-size: 22px;">Soğutucu Fan Durumu : Kapalı</p>
+        }
+        
+        @if (true)
+        {
+
+
+            <p style="font-size: 22px;">Isıtıcı Fan Durumu : Açık</p>
+        }
+        else
+        {
+            <p style="font-size: 22px;">Isıtıcı Fan Durumu : Kapalı</p>
+        }
+
+    </div>
+
+
+</div>
+
+<div class="row" style="background-color: #ECF0F5; margin-top: 20px;  ">
+    <div class="col-md-3" align="center" style="margin-top: 15px;margin-bottom: 15px;  ">
+        @*burada havalandırmanın durumuna göre işlem yapılacaktır*@
+
+
+        @if (true)
+        {
+
+            <a href="#"><button type="button" class="btn btn-info" style="height: 100px; width: 250px; font-size: 22px"> Isıtıcı Fanı Aç</button></a>
+        }
+        else
+        {
+            <a href="#"><button type="button" class="btn btn-info" style="height: 100px; width: 250px;font-size: 22px"> Isıtıcı Fanı Kapat</button></a>
+
+        }
+
+
+    </div>
+    <div class="col-md-3" align="center" style="margin-top: 15px;margin-bottom: 15px;  ">
+        @*burada havalandırmanın durumuna göre işlem yapılacaktır*@
+
+
+        @if (true)
+        {
+
+            <a href="#"><button type="button" class="btn btn-info" style="height: 100px; width: 250px; font-size: 22px"> Soğutucu Fanı Aç</button></a>
+        }
+        else
+        {
+            <a href="#"><button type="button" class="btn btn-info" style="height: 100px; width: 250px;font-size: 22px"> Soğutucu Fanı Kapat</button></a>
+
+        }
+
+
+    </div>
+    <div class="col-md-3" align="center" style="margin-top: 15px;">
+        <a href="~/Home/SicaklikList" ><button type="button" style="height: 100px; width: 250px; font-size: 20px"class="btn btn-info">Verileri Liste Halinde Göster</button></a>
+
+
+    </div>
+    <div class="col-md-3" align="center" style="margin-top: 15px;margin-bottom: 15px;  ">
+        @*burada havalandırmanın durumuna göre işlem yapılacaktır*@
+
+      
+        <form role="form" action="~/Limit/SicaklikLimitKontrol/" method="post">
+       
+            <div class="form-group">
+                <label for="InputName" style="font-size:15px;  color: #333333">Sıcaklık Limiti : Bu olarak belirlendi.</label><br/>
+                <div class="input-group">
+                    <label for="InputName" style="font-size: 15px;  color:#333333; padding: 10px;">Sıcaklık Limiti:</label>
+                 
+                    <input type="text"   name="Limit" id="InputName" placeholder="Limit" required style="height: 31px; padding: 8px;">
+                    <input type="submit" name="submit" id="submit" value="Gonder" class="btn btn-info pull-right" style="margin-left: 10px; margin-top: 5px;">
+
+                </div>
+            </div>
+
+
+
+            
+        
+        </form>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-0" hidden="">
+            <!-- AREA CHART -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Area Chart</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="chart">
+                        <canvas id="areaChart" style="height:250px"></canvas>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- DONUT CHART -->
+            <!-- /.box -->
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-12">
+            <!-- LINE CHART -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Line Chart</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="chart">
+                        <canvas id="lineChart" style="height:250px"></canvas>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- BAR CHART -->
+            <!-- /.box -->
+        </div>
+        <!-- /.col (RIGHT) -->
+    </div>
+    <!-- /.row -->
+</section>
+
+
+<script src="~/Content/Main/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery 3 -->
+
+<script src="~/Content/Main/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<!-- ChartJS -->
+<script src="~/Content/Main/bower_components/chart.js/Chart.js"></script>
+
+<!-- FastClick -->
+<script src="~/Content/Main/bower_components/fastclick/lib/fastclick.js"></script>
+
+<!-- AdminLTE App -->
+<!-- AdminLTE for demo purposes -->
+<script src="~/Content/Main/dist/js/demo.js"></script>
+
+<!-- page script -->
+<script>
+    $(function () {
+        /* ChartJS
+         * -------
+         * Here we will create a few charts using ChartJS
+         */
+
+        //--------------
+        //- AREA CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+        // This will get the first returned node in the jQuery collection.
+        var areaChart = new Chart(areaChartCanvas)
+
+        var areaChartData = {
+            labels: ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', '', 'June', 'July', 'July', 'July', 'July', 'July', 'July', 'July', 'July'],
+            datasets: [
+                {
+                    label: 'Electronics',
+                    fillColor: 'rgba(210, 214, 222, 1)',
+                    strokeColor: 'rgba(210, 214, 222, 1)',
+                    pointColor: 'rgba(210, 214, 222, 1)',
+                    pointStrokeColor: '#c1c7d1',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(220,220,220,1)',
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                //{
+                //    //Burada birden fazla değer gösterilebiliyor
+                //    label: 'Digital Goods',
+                //    fillColor: 'rgba(60,141,188,0.9)',
+                //    strokeColor: 'rgba(60,141,188,0.8)',
+                //    pointColor: '#3b8bba',
+                //    pointStrokeColor: 'rgba(60,141,188,1)',
+                //    pointHighlightFill: '#fff',
+                //    pointHighlightStroke: 'rgba(60,141,188,1)',
+                //    data: [90, 48, 40, 19, 86, 27, 90]
+                //}
+            ]
+        }
+
+        var areaChartOptions = {
+            //Boolean - If we should show the scale at all
+            showScale: true,
+            //Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines: false,
+            //String - Colour of the grid lines
+            scaleGridLineColor: 'rgba(0,0,0,.05)',
+            //Number - Width of the grid lines
+            scaleGridLineWidth: 5,
+            //Boolean - Whether to show horizontal lines (except X axis)
+            scaleShowHorizontalLines: true,
+            //Boolean - Whether to show vertical lines (except Y axis)
+            scaleShowVerticalLines: true,
+            //Boolean - Whether the line is curved between points
+            bezierCurve: true,
+            //Number - Tension of the bezier curve between points
+            bezierCurveTension: 0.3,
+            //Boolean - Whether to show a dot for each point
+            pointDot: false,
+            //Number - Radius of each point dot in pixels
+            pointDotRadius: 4,
+            //Number - Pixel width of point dot stroke
+            pointDotStrokeWidth: 1,
+            //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+            pointHitDetectionRadius: 20,
+            //Boolean - Whether to show a stroke for datasets
+            datasetStroke: true,
+            //Number - Pixel width of dataset stroke
+            datasetStrokeWidth: 2,
+            //Boolean - Whether to fill the dataset with a color
+            datasetFill: true,
+            //String - A legend template
+            legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+            //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+            maintainAspectRatio: true,
+            //Boolean - whether to make the chart responsive to window resizing
+            responsive: true
+        }
+
+        //Create the line chart
+        areaChart.Line(areaChartData, areaChartOptions)
+
+        //-------------
+        //- LINE CHART -
+        //--------------
+        var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+        var lineChart = new Chart(lineChartCanvas)
+        var lineChartOptions = areaChartOptions
+        lineChartOptions.datasetFill = false
+        lineChart.Line(areaChartData, lineChartOptions)
+
+        //-------------
+        //- PIE CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+
+    })</script>

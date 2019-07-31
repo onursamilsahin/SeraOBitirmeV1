@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SeraOWeb.Models.DataAccess.Kullanici>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Isim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoyIsim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeraKonum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoyIsim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeraKonum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sifre)
+        </td>
+        <td>
+            @Html.ActionLink("Sera ver", "SeraVer", new { id = item.KullaniciId }) |
+
+        </td>
+        <td>
+            @Html.ActionLink("Rol ver", "RolVer", new { id = item.KullaniciId }) |
+
+        </td>
+    </tr>
+}
+
+</table>

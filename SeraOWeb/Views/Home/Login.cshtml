@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown" >
+    <div id="formContent" style="margin-top: 200px;">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first" style="margin-top: 10px;margin-bottom: 10px">
+            <img src="~/Content/png/iconfinder_user-avatar-human-admin-login_2203549.png" style="width: 45px; height: 45px;" id="icon" alt="User Icon" />
+        
+        </div>
+
+        <!-- Login Form -->
+        @*<form >
+            <input type="text" id="login" class="fadeIn second" name="KullaniciAdi" placeholder="login">
+            <input type="password" id="password" class="fadeIn third" name="Sifre" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>*@
+        
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+
+
+            <input type="text" id="login" class="fadeIn second" name="Telno" placeholder="Tel no">
+            <input type="password" id="password" class="fadeIn third" name="Sifre" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+
+        }
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            
+        </div>
+
+    </div>
+</div>
+<link href="~/Content/Login.css" rel="stylesheet" />

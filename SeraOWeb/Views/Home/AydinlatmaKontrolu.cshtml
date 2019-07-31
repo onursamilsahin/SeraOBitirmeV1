@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "AydinlatmaKontrolu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SeraOWeb.Models.DataAccess.LedDurum
+ 
+
+
+
+<div class="row" style="background-color: #ECF0F5;border: 1px solid black">
+    <div align="center" style="font-size: 150%">
+        <p style="padding-top: 10px;">
+            SERA YÖNETİMİ
+        </p>
+
+        <p style="padding-top: 20px;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 150
+            when an unknown printer took a galley of type and scrambled it to make a
+        </p>
+    </div>
+
+
+</div>
+
+
+<div class="row" style="background-color: #ECF0F5; margin-top: 20px; border: 1px solid black">
+
+    <div class="col-md-6">   <p style="font-size:25px;"><img style="height: 15%; width: 15%; padding-top: 5px; padding-right: 5px;" src="~/Content/png/idea.png" />AYDINLATMA KONTROLÜ</p></div>
+
+    <div class="col-md-6"></div>
+
+
+
+</div>
+
+<div class="row" style="background-color: #ECF0F5; margin-top: 20px; border: 1px solid black">
+    <div class="col-md-12" align="center" style="margin-top: 15px;margin-bottom: 15px; margin-left: 10px;">
+        <p style="font-size: 22px;">Ldr değeri Yorumlanmalı</p><br />
+        @if (Model.LDurum==true)
+        {
+
+
+            <p style="font-size: 22px;">Işık : Açık</p>
+        }
+        else
+        {
+            <p style="font-size: 22px;">Işık: Kapalı</p>
+        }
+
+
+    </div>
+
+
+</div>
+
+<div class="row" style="background-color: #ECF0F5; margin-top: 20px;  ">
+    <div class="col-md-12" align="center" style="margin-top: 15px;margin-bottom: 15px;  ">
+        @*burada havalandırmanın durumuna göre işlem yapılacaktır*@
+
+
+        @if (Model.LDurum==true)
+        {
+        <form action="~/DataPost/LedDurumGonder" method="post">
+
+            <input type="text" hidden="" name="Veri" value="0" id="InputName"  required style="height: 31px; padding: 8px;">
+            <button type="submit" class="btn btn-info" style="height: 100px; width: 300px; font-size: 22px"> Işığı Kapat</button>
+
+
+        </form>
+           
+        }
+        else
+        {
+            <form action="~/DataPost/LedDurumGonder" method="post">
+
+                <input type="text" hidden="" name="Veri" value="1" id="InputName"  required style="height: 31px; padding: 8px;">
+                <button type="submit" class="btn btn-info" style="height: 100px; width: 300px; font-size: 22px"> Işığı Aç</button>
+
+
+            </form>
+           
+        }
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+ 
